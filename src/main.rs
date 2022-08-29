@@ -1,11 +1,11 @@
 
 use std::env;
-use std::thread;
+//use std::thread;
 use num_bigint::BigInt;
 use std::mem::replace;
 use num_traits::{Zero, One};
 
-const STACK_SIZE: usize = 500 * 1024 * 1024;
+//const STACK_SIZE: usize = 500 * 1024 * 1024;
 
 //Bulk of logic for fibonacci sequence
 fn calc_fib(){
@@ -26,7 +26,7 @@ fn calc_fib(){
     
     //Loop num times
     for _ in 0..num{
-        
+
         //0,1,2 = 0,1,1 after first 3 indexs calc remains the same
         if num == 2{
             current = next;
@@ -46,9 +46,9 @@ fn calc_fib(){
 
 
 fn main() {
-    
+    calc_fib();    
     //Run on separted thread to control stack memory
-    let child = thread::Builder::new().stack_size(STACK_SIZE).spawn(calc_fib).unwrap();
-    child.join().unwrap();
+    //let child = thread::Builder::new().stack_size(STACK_SIZE).spawn(calc_fib).unwrap();
+    //child.join().unwrap();
 
 }
